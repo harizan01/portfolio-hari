@@ -82,7 +82,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-accent/30 selection:text-slate-900 font-sans">
+    <div className="min-h-screen text-slate-900 selection:bg-accent/30 selection:text-slate-900 font-sans">
 
       {/* Navigation / Header - Minimal */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center pointer-events-none">
@@ -99,16 +99,16 @@ function App() {
       <nav className="fixed top-20 left-1/2 -translate-x-1/2 z-40 pointer-events-none">
         <div className="pointer-events-auto backdrop-blur-md bg-white/50 px-6 py-3 rounded-full border border-white/20 shadow-lg">
           <div className="flex gap-2">
-            <a href="#about" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-purple-500 hover:text-white transition-all duration-200">About</a>
-            <a href="#projects" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-purple-500 hover:text-white transition-all duration-200">Projects</a>
-            <a href="#experience" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-purple-500 hover:text-white transition-all duration-200">Experience</a>
-            <a href="#education" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-purple-500 hover:text-white transition-all duration-200">Education</a>
+            <a href="#about" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">About</a>
+            <a href="#projects" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Projects</a>
+            <a href="#experience" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Experience</a>
+            <a href="#education" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Education</a>
           </div>
         </div>
       </nav>
 
       {/* Global Animated Gradient Background */}
-      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50">
+      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-emerald-100 via-teal-100 to-green-100">
         <motion.div
           animate={{
             backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
@@ -118,7 +118,7 @@ function App() {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute inset-0 bg-gradient-to-br from-emerald-100 via-teal-100 to-green-100 opacity-40"
+          className="absolute inset-0 bg-gradient-to-br from-emerald-200 via-teal-200 to-green-200 opacity-60"
           style={{
             backgroundSize: '200% 200%',
           }}
@@ -160,13 +160,16 @@ function App() {
           </div>
           <div className="order-1 md:order-2 flex justify-center">
             <motion.img
-              src="/profile.png"
+              src="/profile.png?v=3"
               alt="Harikrishnan P R"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{
+                boxShadow: "0 0 40px 20px rgba(16, 185, 129, 0.5), 0 0 80px 40px rgba(20, 184, 166, 0.3)"
+              }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="w-64 h-auto md:w-80 grayscale hover:grayscale-0 transition-all duration-500"
+              className="w-64 h-auto md:w-80 grayscale hover:grayscale-0 transition-all duration-500 rounded-2xl"
             />
           </div>
         </div>
@@ -290,173 +293,194 @@ function App() {
         </div>
       </Section>
 
-      {/* Asymmetric Emerald Cave Footer */}
-      <footer className="relative overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 py-20 px-6 text-white min-h-[500px]">
-        {/* Glowing emerald pool at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-emerald-500/25 via-emerald-400/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-48"
+      {/* Emerald Cave Footer */}
+      <footer className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 py-20 px-6 text-white min-h-[500px]">
+        {/* Cave ambient glow */}
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/20 via-emerald-900/10 to-emerald-950/20" />
+
+        {/* Random scattered emerald crystals - creating cave effect */}
+
+        {/* Top left cluster - small crystals */}
+        <div className="absolute top-[10%] left-[5%] w-16 h-24 opacity-40" style={{ transform: 'rotate(-15deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-700"
+            style={{
+              clipPath: 'polygon(50% 0%, 20% 30%, 30% 100%, 70% 100%, 80% 30%)',
+              filter: 'drop-shadow(0 0 15px rgba(16, 185, 129, 0.6))'
+            }} />
+        </div>
+
+        <div className="absolute top-[8%] left-[12%] w-12 h-20 opacity-35" style={{ transform: 'rotate(25deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-300 via-emerald-400 to-teal-600"
+            style={{
+              clipPath: 'polygon(50% 0%, 15% 35%, 25% 100%, 75% 100%, 85% 35%)',
+              filter: 'drop-shadow(0 0 12px rgba(20, 184, 166, 0.5))'
+            }} />
+        </div>
+
+        {/* Top right cluster */}
+        <div className="absolute top-[15%] right-[8%] w-20 h-28 opacity-45" style={{ transform: 'rotate(10deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-300 via-teal-400 to-emerald-600"
+            style={{
+              clipPath: 'polygon(50% 0%, 18% 28%, 28% 100%, 72% 100%, 82% 28%)',
+              filter: 'drop-shadow(0 0 18px rgba(16, 185, 129, 0.7))'
+            }} />
+        </div>
+
+        <div className="absolute top-[12%] right-[16%] w-14 h-22 opacity-38" style={{ transform: 'rotate(-20deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-400 via-emerald-500 to-emerald-700"
+            style={{
+              clipPath: 'polygon(50% 0%, 22% 32%, 32% 100%, 68% 100%, 78% 32%)',
+              filter: 'drop-shadow(0 0 14px rgba(20, 184, 166, 0.55))'
+            }} />
+        </div>
+
+        {/* Middle scattered crystals */}
+        <div className="absolute top-[35%] left-[18%] w-24 h-32 opacity-50" style={{ transform: 'rotate(8deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-500 to-emerald-700"
+            style={{
+              clipPath: 'polygon(50% 0%, 15% 25%, 20% 100%, 80% 100%, 85% 25%)',
+              filter: 'drop-shadow(0 0 22px rgba(16, 185, 129, 0.8))'
+            }} />
+        </div>
+
+        <div className="absolute top-[40%] right-[22%] w-18 h-26 opacity-42" style={{ transform: 'rotate(-12deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-300 via-emerald-400 to-teal-600"
+            style={{
+              clipPath: 'polygon(50% 0%, 20% 30%, 28% 100%, 72% 100%, 80% 30%)',
+              filter: 'drop-shadow(0 0 16px rgba(20, 184, 166, 0.65))'
+            }} />
+        </div>
+
+        <div className="absolute top-[38%] left-[45%] w-16 h-24 opacity-48" style={{ transform: 'rotate(18deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-600 to-emerald-800"
+            style={{
+              clipPath: 'polygon(50% 0%, 18% 32%, 26% 100%, 74% 100%, 82% 32%)',
+              filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.75))'
+            }} />
+        </div>
+
+        {/* Bottom larger crystals - cave floor */}
+        <div className="absolute bottom-[5%] left-[8%] w-32 h-48 opacity-65" style={{ transform: 'rotate(-8deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-emerald-600 to-emerald-900"
+            style={{
+              clipPath: 'polygon(50% 0%, 12% 22%, 18% 100%, 82% 100%, 88% 22%)',
+              filter: 'drop-shadow(0 0 30px rgba(16, 185, 129, 1))'
+            }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-emerald-100/20 to-transparent"
+            style={{ clipPath: 'polygon(50% 0%, 40% 15%, 50% 35%, 60% 15%)' }} />
+        </div>
+
+        <div className="absolute bottom-[8%] left-[25%] w-28 h-40 opacity-60" style={{ transform: 'rotate(12deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-300 via-emerald-500 to-teal-800"
+            style={{
+              clipPath: 'polygon(50% 0%, 15% 25%, 22% 100%, 78% 100%, 85% 25%)',
+              filter: 'drop-shadow(0 0 28px rgba(20, 184, 166, 0.95))'
+            }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/25 via-teal-100/15 to-transparent"
+            style={{ clipPath: 'polygon(50% 0%, 42% 18%, 50% 32%, 58% 18%)' }} />
+        </div>
+
+        <div className="absolute bottom-[3%] right-[28%] w-36 h-52 opacity-70" style={{ transform: 'rotate(-5deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-300 via-teal-500 to-emerald-800"
+            style={{
+              clipPath: 'polygon(50% 0%, 10% 20%, 15% 100%, 85% 100%, 90% 20%)',
+              filter: 'drop-shadow(0 0 35px rgba(16, 185, 129, 1.1))'
+            }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-emerald-100/25 to-transparent"
+            style={{ clipPath: 'polygon(50% 0%, 38% 12%, 50% 28%, 62% 12%)' }} />
+        </div>
+
+        <div className="absolute bottom-[10%] right-[12%] w-30 h-44 opacity-62" style={{ transform: 'rotate(15deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-400 via-emerald-600 to-emerald-900"
+            style={{
+              clipPath: 'polygon(50% 0%, 14% 24%, 20% 100%, 80% 100%, 86% 24%)',
+              filter: 'drop-shadow(0 0 32px rgba(20, 184, 166, 1.05))'
+            }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/28 via-teal-100/18 to-transparent"
+            style={{ clipPath: 'polygon(50% 0%, 40% 16%, 50% 30%, 60% 16%)' }} />
+        </div>
+
+        {/* Additional small scattered crystals for depth */}
+        <div className="absolute top-[25%] left-[35%] w-10 h-16 opacity-32" style={{ transform: 'rotate(-25deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-500 to-emerald-700"
+            style={{
+              clipPath: 'polygon(50% 0%, 25% 35%, 35% 100%, 65% 100%, 75% 35%)',
+              filter: 'drop-shadow(0 0 10px rgba(16, 185, 129, 0.5))'
+            }} />
+        </div>
+
+        <div className="absolute top-[50%] right-[38%] w-12 h-18 opacity-36" style={{ transform: 'rotate(22deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-300 via-emerald-400 to-teal-600"
+            style={{
+              clipPath: 'polygon(50% 0%, 22% 33%, 32% 100%, 68% 100%, 78% 33%)',
+              filter: 'drop-shadow(0 0 12px rgba(20, 184, 166, 0.55))'
+            }} />
+        </div>
+
+        <div className="absolute bottom-[25%] left-[60%] w-14 h-20 opacity-40" style={{ transform: 'rotate(-18deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-600 to-emerald-800"
+            style={{
+              clipPath: 'polygon(50% 0%, 20% 30%, 30% 100%, 70% 100%, 80% 30%)',
+              filter: 'drop-shadow(0 0 14px rgba(16, 185, 129, 0.6))'
+            }} />
+        </div>
+
+        <div className="absolute top-[55%] left-[72%] w-11 h-17 opacity-34" style={{ transform: 'rotate(28deg)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-400 via-emerald-500 to-teal-700"
+            style={{
+              clipPath: 'polygon(50% 0%, 24% 34%, 34% 100%, 66% 100%, 76% 34%)',
+              filter: 'drop-shadow(0 0 11px rgba(20, 184, 166, 0.52))'
+            }} />
+        </div>
+
+        {/* Glowing emerald pool at bottom for cave floor effect */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-emerald-500/15 via-emerald-400/8 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24"
           style={{
-            background: 'radial-gradient(ellipse at bottom, rgba(16, 185, 129, 0.3) 0%, rgba(20, 184, 166, 0.15) 40%, transparent 70%)'
+            background: 'radial-gradient(ellipse at bottom, rgba(16, 185, 129, 0.2) 0%, rgba(20, 184, 166, 0.1) 50%, transparent 80%)'
           }} />
-
-        {/* Asymmetric emerald crystals - extending from below footer */}
-
-        {/* Crystal 1 - far left, very tall */}
-        <div className="absolute bottom-[-120px] left-[3%] w-52 h-[720px]" style={{ transform: 'perspective(900px) rotateY(-8deg) rotateZ(1deg)' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-800 opacity-95"
-            style={{
-              clipPath: 'polygon(50% 0%, 4% 22%, 7% 100%, 50% 96%)',
-              filter: 'drop-shadow(0 0 55px rgba(16, 185, 129, 1.1))'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-bl from-emerald-100 via-teal-200 to-emerald-400 opacity-98"
-            style={{
-              clipPath: 'polygon(50% 0%, 96% 22%, 93% 100%, 50% 96%)',
-              filter: 'brightness(1.75)'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-emerald-50 to-transparent opacity-82"
-            style={{ clipPath: 'polygon(50% 0%, 69% 6%, 50% 24%, 31% 6%)' }} />
-        </div>
-
-        {/* Crystal 2 - left area, medium */}
-        <div className="absolute bottom-[-100px] left-[14%] w-36 h-[520px]" style={{ transform: 'perspective(700px) rotateY(-22deg) rotateZ(7deg)' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-700 opacity-93"
-            style={{
-              clipPath: 'polygon(50% 0%, 7% 26%, 11% 100%, 50% 94%)',
-              filter: 'drop-shadow(0 0 38px rgba(16, 185, 129, 0.88))'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-bl from-emerald-200 via-teal-300 to-emerald-500 opacity-96"
-            style={{
-              clipPath: 'polygon(50% 0%, 93% 26%, 89% 100%, 50% 94%)',
-              filter: 'brightness(1.58)'
-            }} />
-          <div className="absolute inset-0 bg-white opacity-68"
-            style={{ clipPath: 'polygon(50% 0%, 66% 11%, 50% 33%, 34% 11%)' }} />
-        </div>
-
-        {/* Crystal 3 - left-center, tall */}
-        <div className="absolute bottom-[-130px] left-[23%] w-44 h-[680px]" style={{ transform: 'perspective(850px) rotateY(11deg) rotateZ(-3deg)' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-teal-200 via-emerald-300 to-teal-500 opacity-97"
-            style={{
-              clipPath: 'polygon(50% 0%, 3% 20%, 5% 100%, 50% 97%)',
-              filter: 'brightness(1.72) drop-shadow(0 0 52px rgba(20, 184, 166, 1.05))'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-bl from-emerald-400 via-teal-500 to-emerald-700 opacity-95"
-            style={{
-              clipPath: 'polygon(50% 0%, 97% 20%, 95% 100%, 50% 97%)'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-50 to-transparent opacity-84"
-            style={{ clipPath: 'polygon(50% 0%, 71% 5%, 50% 22%, 29% 5%)' }} />
-        </div>
-
-        {/* Crystal 4 - center-left, medium-small */}
-        <div className="absolute bottom-[-90px] left-[42%] w-28 h-[420px]" style={{ transform: 'perspective(650px) rotateY(-16deg) rotateZ(9deg)' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-300 via-emerald-400 to-emerald-600 opacity-91"
-            style={{
-              clipPath: 'polygon(50% 0%, 9% 29%, 13% 100%, 50% 93%)',
-              filter: 'drop-shadow(0 0 32px rgba(16, 185, 129, 0.8))'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-bl from-emerald-100 via-teal-200 to-emerald-400 opacity-94"
-            style={{
-              clipPath: 'polygon(50% 0%, 91% 29%, 87% 100%, 50% 93%)',
-              filter: 'brightness(1.52)'
-            }} />
-        </div>
-
-        {/* Crystal 5 - center-right, very tall */}
-        <div className="absolute bottom-[-150px] right-[42%] w-56 h-[780px]" style={{ transform: 'perspective(950px) rotateY(19deg) rotateZ(-5deg)' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-teal-100 via-emerald-200 to-teal-400 opacity-98"
-            style={{
-              clipPath: 'polygon(50% 0%, 2% 19%, 4% 100%, 50% 98%)',
-              filter: 'brightness(1.78) drop-shadow(0 0 60px rgba(16, 185, 129, 1.25))'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-bl from-emerald-400 via-teal-500 to-emerald-700 opacity-96"
-            style={{
-              clipPath: 'polygon(50% 0%, 98% 19%, 96% 100%, 50% 98%)'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-50 to-transparent opacity-86"
-            style={{ clipPath: 'polygon(50% 0%, 72% 4%, 50% 20%, 28% 4%)' }} />
-        </div>
-
-        {/* Crystal 6 - right area, medium */}
-        <div className="absolute bottom-[-110px] right-[29%] w-38 h-[580px]" style={{ transform: 'perspective(750px) rotateY(-13deg) rotateZ(4deg)' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-teal-300 via-emerald-400 to-emerald-600 opacity-94"
-            style={{
-              clipPath: 'polygon(50% 0%, 6% 24%, 9% 100%, 50% 95%)',
-              filter: 'drop-shadow(0 0 42px rgba(20, 184, 166, 0.92))'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-bl from-teal-100 via-emerald-200 to-teal-400 opacity-97"
-            style={{
-              clipPath: 'polygon(50% 0%, 94% 24%, 91% 100%, 50% 95%)',
-              filter: 'brightness(1.64)'
-            }} />
-          <div className="absolute inset-0 bg-white opacity-72"
-            style={{ clipPath: 'polygon(50% 0%, 68% 9%, 50% 30%, 32% 9%)' }} />
-        </div>
-
-        {/* Crystal 7 - far right, tall */}
-        <div className="absolute bottom-[-125px] right-[11%] w-48 h-[700px]" style={{ transform: 'perspective(880px) rotateY(14deg) rotateZ(-2deg)' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-600 to-emerald-800 opacity-95"
-            style={{
-              clipPath: 'polygon(50% 0%, 5% 21%, 8% 100%, 50% 96%)',
-              filter: 'drop-shadow(0 0 48px rgba(16, 185, 129, 1))'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-bl from-emerald-100 via-teal-200 to-emerald-400 opacity-98"
-            style={{
-              clipPath: 'polygon(50% 0%, 95% 21%, 92% 100%, 50% 96%)',
-              filter: 'brightness(1.7)'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-emerald-50 to-transparent opacity-80"
-            style={{ clipPath: 'polygon(50% 0%, 70% 7%, 50% 26%, 30% 7%)' }} />
-        </div>
-
-        {/* Crystal 8 - very far right edge, small accent */}
-        <div className="absolute bottom-[-80px] right-[2%] w-32 h-[460px]" style={{ transform: 'perspective(680px) rotateY(25deg) rotateZ(-8deg)' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-teal-300 via-emerald-400 to-emerald-600 opacity-92"
-            style={{
-              clipPath: 'polygon(50% 0%, 10% 28%, 14% 100%, 50% 92%)',
-              filter: 'drop-shadow(0 0 35px rgba(20, 184, 166, 0.85))'
-            }} />
-          <div className="absolute inset-0 bg-gradient-to-bl from-teal-100 via-emerald-200 to-teal-400 opacity-95"
-            style={{
-              clipPath: 'polygon(50% 0%, 90% 28%, 86% 100%, 50% 92%)',
-              filter: 'brightness(1.56)'
-            }} />
-        </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold mb-6"
-          >
-            Ready to scale your{" "}
-            <span className="bg-gradient-to-r from-emerald-300 via-teal-200 to-emerald-400 bg-clip-text text-transparent">
-              infrastructure?
-            </span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-slate-300 max-w-2xl mx-auto mb-10 text-lg"
-          >
-            I'm currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-          </motion.p>
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            onClick={handleContact}
-            className="btn-primary shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/35 transition-shadow"
-          >
-            Say Hello
-          </motion.button>
-          <div className="mt-16 pt-8 border-t border-emerald-400/20 text-slate-400 text-sm">
-            © {new Date().getFullYear()} Harikrishnan P R. Built with React + Tailwind.
+          {/* Dark backdrop for better text readability */}
+          <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm rounded-3xl -mx-8 -my-8" />
+
+          <div className="relative z-20 py-8">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-bold mb-6"
+              style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}
+            >
+              Ready to scale your{" "}
+              <span className="bg-gradient-to-r from-emerald-300 via-teal-200 to-emerald-400 bg-clip-text text-transparent">
+                infrastructure?
+              </span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-slate-200 max-w-2xl mx-auto mb-10 text-lg"
+              style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.5)' }}
+            >
+              I'm currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            </motion.p>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              onClick={handleContact}
+              className="btn-primary shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/35 transition-shadow"
+            >
+              Say Hello
+            </motion.button>
+            <div className="mt-16 pt-8 border-t border-emerald-400/30 text-slate-300 text-sm" style={{ textShadow: '0 1px 6px rgba(0, 0, 0, 0.5)' }}>
+              © {new Date().getFullYear()} Harikrishnan P R. Built with React + Tailwind.
+            </div>
           </div>
         </div>
       </footer>
