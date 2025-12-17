@@ -61,6 +61,12 @@ function App() {
       img: null
     },
     {
+      title: "WhatsApp Bot Automation",
+      description: "Serverless WhatsApp chatbot using AWS Lambda and Twilio API for automated customer interactions and notifications.",
+      tags: ["AWS Lambda", "Twilio", "WhatsApp API", "Python"],
+      img: null
+    },
+    {
       title: "IoT Smart Wheelchair",
       description: "Voice/joystick-controlled wheelchair with health tracking sensors.",
       tags: ["IoT", "Embedded", "Sensors"],
@@ -100,9 +106,9 @@ function App() {
         <div className="pointer-events-auto backdrop-blur-md bg-white/50 px-6 py-3 rounded-full border border-white/20 shadow-lg">
           <div className="flex gap-2">
             <a href="#about" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">About</a>
+            <a href="#certifications" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Certifications</a>
             <a href="#projects" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Projects</a>
             <a href="#experience" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Experience</a>
-            <a href="#certifications" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Certifications</a>
             <a href="#education" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Education</a>
           </div>
         </div>
