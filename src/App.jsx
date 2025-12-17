@@ -3,7 +3,7 @@ import Hero from './components/ui/Hero';
 import ProjectCard from './components/ui/ProjectCard';
 import { Section } from './components/ui/Section';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Server, Cloud, Code, Terminal, Database, Shield } from 'lucide-react';
+import { Mail, Github, Linkedin, Server, Cloud, Code, Terminal, Database, Shield, Award } from 'lucide-react';
 
 function App() {
   const projects = [
@@ -102,6 +102,7 @@ function App() {
             <a href="#about" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">About</a>
             <a href="#projects" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Projects</a>
             <a href="#experience" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Experience</a>
+            <a href="#certifications" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Certifications</a>
             <a href="#education" className="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-teal-500 hover:text-white transition-all duration-200">Education</a>
           </div>
         </div>
@@ -129,7 +130,7 @@ function App() {
 
       {/* Profile Summary - Full Width */}
       <section id="about" className="relative py-24 px-6">
-        <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <motion.h2
               initial={{ opacity: 0, y: 10 }}
@@ -174,20 +175,85 @@ function App() {
           </div>
         </div>
 
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">Core Technologies</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {/* Certifications Section */}
+        <div id="certifications" className="mt-16">
+          <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">Certifications</h3>
+          <div className="flex flex-col gap-6 max-w-2xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0 }}
+              whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.3)" }}
+              className="relative p-6 rounded-2xl bg-white/70 backdrop-blur-md border border-emerald-200/50 flex flex-row items-center gap-6 shadow-lg shadow-emerald-500/10 transition-all duration-300 overflow-hidden group"
+            >
+              {/* Animated gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/80 via-teal-50/60 to-green-50/80 opacity-80 group-hover:opacity-100 transition-opacity" />
+
+              {/* Subtle glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity" />
+
+              <div className="relative flex-shrink-0 p-3 bg-white/80 rounded-xl shadow-sm">
+                <img src="/azure-cert-badge.png" alt="Azure Administrator Associate" className="w-20 h-20 object-contain" />
+              </div>
+              <div className="relative text-left flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <Award className="w-5 h-5 text-emerald-600" />
+                  <span className="font-bold text-slate-900 text-lg">Microsoft Certified</span>
+                </div>
+                <p className="text-base font-semibold bg-gradient-to-r from-emerald-700 to-teal-700 bg-clip-text text-transparent">Azure Administrator Associate</p>
+                <p className="text-sm text-slate-600 mt-1 font-medium">AZ-104</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(20, 184, 166, 0.3)" }}
+              className="relative p-6 rounded-2xl bg-white/70 backdrop-blur-md border border-teal-200/50 flex flex-row items-center gap-6 shadow-lg shadow-teal-500/10 transition-all duration-300 overflow-hidden group"
+            >
+              {/* Animated gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-50/80 via-emerald-50/60 to-green-50/80 opacity-80 group-hover:opacity-100 transition-opacity" />
+
+              {/* Subtle glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity" />
+
+              <div className="relative flex-shrink-0 p-3 bg-white/80 rounded-xl shadow-sm">
+                <img src="/aws-cert-badge.png" alt="AWS Solutions Architect Associate" className="w-20 h-20 object-contain" />
+              </div>
+              <div className="relative text-left flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <Award className="w-5 h-5 text-teal-600" />
+                  <span className="font-bold text-slate-900 text-lg">AWS Certified</span>
+                </div>
+                <p className="text-base font-semibold bg-gradient-to-r from-teal-700 to-emerald-700 bg-clip-text text-transparent">Solutions Architect Associate</p>
+                <p className="text-sm text-slate-600 mt-1 font-medium">SAA-C03</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <h3 className="text-xl font-bold text-slate-900 mb-6 text-center">Core Technologies</h3>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 max-w-3xl mx-auto">
             {skills.map((s, i) => (
               <motion.div
                 key={s.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -4,
+                  boxShadow: "0 10px 25px rgba(16, 185, 129, 0.2)"
+                }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col items-center justify-center text-center hover:border-slate-200 transition-colors"
+                transition={{ delay: i * 0.05 }}
+                className="p-3 rounded-lg bg-slate-50 border border-slate-100 flex flex-col items-center justify-center text-center hover:border-emerald-300 hover:bg-emerald-50/50 transition-all duration-300 cursor-pointer"
               >
-                <s.icon className="w-8 h-8 text-accent mb-3" />
-                <span className="font-medium text-slate-900">{s.name}</span>
+                <s.icon className="w-6 h-6 text-emerald-600 mb-2 transition-colors group-hover:text-emerald-700" />
+                <span className="font-medium text-slate-900 text-xs">{s.name}</span>
               </motion.div>
             ))}
           </div>
@@ -265,7 +331,7 @@ function App() {
             <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent ring-4 ring-white" />
             <span className="text-sm font-semibold text-accent tracking-wider uppercase">2024</span>
             <h3 className="text-2xl font-bold text-slate-900 mt-2">DevOps & Cloud Engineering Training</h3>
-            <p className="text-slate-500 font-medium">Talrop, Calicut</p>
+            <p className="text-slate-500 font-medium">CloudThat, Bengaluru</p>
             <ul className="mt-4 space-y-2 text-slate-600 list-disc list-outside ml-5">
               <li>Comprehensive training in AWS, Azure, Docker, Kubernetes, and CI/CD pipelines</li>
               <li>Hands-on experience with infrastructure as code using Terraform and Ansible</li>
@@ -282,8 +348,8 @@ function App() {
             <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 ring-4 ring-white" />
             <span className="text-sm font-semibold text-slate-400 tracking-wider uppercase">2019 – 2023</span>
             <h3 className="text-2xl font-bold text-slate-900 mt-2">Bachelor of Technology (B.Tech)</h3>
-            <p className="text-slate-500 font-medium">Mechanical Engineering</p>
-            <p className="text-slate-500">MES College of Engineering, Kuttippuram</p>
+            <p className="text-slate-500 font-medium">Electronics and Communication Engineering (ECE)</p>
+            <p className="text-slate-500">Vidya Academy of Science and Technology</p>
             <ul className="mt-4 space-y-2 text-slate-600 list-disc list-outside ml-5">
               <li>Graduated with strong analytical and problem-solving skills</li>
               <li>Developed interest in automation and technology during coursework</li>
